@@ -1,27 +1,30 @@
-// bài 1
+// bai 1
 
-const arr = [0, 5, 4, 2, 8]
-function sumArray() {
-    let sum = 0;
-    for (let i = 0; i < arr.length; i++) {
-        sum += arr[i];
-    }
-    return sum;
+function myFunction(doiSo1) {
+    doiSo1('hello')
 }
-console.log(sumArray());
+function myCallback(value) {
+    console.log('value:', value);
+}
+myFunction(myCallback)
 
-// bài 2
-const person = [
-    { name: 'John', age: 24 },
-    { name: 'Pete', age: 25 },
-    { name: 'Mary', age: 28 },
-]
-const ten = person.map(x => x.name);
-console.log(ten);
-//  bai 3
-arr1 = ['John', 'Pete', 'Mary']
-arr2 = ['Mary', 'Henry', 'Harry']
-var arr3 = arr1.concat(arr2)
 
-const uniqueSet = new Set(arr3);
-console.log(uniqueSet);
+
+
+// baif 2
+
+function viec1(congViec) {
+    congViec();
+}
+
+function viec2(congViec) {
+    congViec();
+}
+function main() {
+    viec1(function () {
+        viec2(function () {
+            console.log('DA XONG CONG VIEC!!!!');
+        });
+    });
+}
+main()
