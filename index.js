@@ -1,64 +1,58 @@
-// bai 1
-
-function myFunction(doiSo1) {
-    doiSo1('hello')
-}
-function myCallback(value) {
-    console.log('value:', value);
-}
-myFunction(myCallback)
 
 
+// var foodApi = 'https://6240617c2aeb48a9af735d49.mockapi.io/:endpoint'
+
+// fetch(foodApi)
+//     .then(response => response.json())
+//     .then(function (response) {
+//         var htmls = response.map(function (post) {
+//             return `<li>
+//            <h2>${post.title}</h2>
+//            <p>${post.body}</p>
+
+//            </li>`
+//         })
+//         var html = htmls.join('');
+//         document.getElementById('post').innerHTML = html;
+//     })
+//     .catch(err => console.log(err));
 
 
-// baif 2
-
-function viec1(congViec) {
-    congViec();
-}
-
-function viec2(congViec) {
-    congViec();
-}
-function main() {
-    viec1(function () {
-        console.log('viec 1');
-        viec2(function () {
-            console.log('DA XONG CONG VIEC!!!!');
-        });
-    });
-}
-main()
-
-// Map
-Array.prototype.mymap = function (callback) {
-    const resultArray = [];
-    for (let index = 0; index < this.length; index++) {
-        resultArray.push(callback(this[index], index, this));
+const axios = require('axios');
+async function create() {
+    const data={
+        name : "nguyen van Phuc",
+       avatar: 'https://dbk.vn/uploads/ckfinder/images/1-content/anh-dep-1.jpg'
     }
-    return resultArray;
-
+    const api=await axios.post('https://624061412aeb48a9af735b00.mockapi.io/api/v1/users/',data);
+console.log(api.data);
 }
-const mang = [1, 2, 3]
-var output = mang.mymap(function (val, index, array) {
-    console.log(val, index, array);
-
-})
 
 
 
-
-//forEach
-Array.prototype.myForEach = function (callback) {
-    for (let i = 0; i < this.length; i++) {
-        callback(this[i]);
+async function getDetail() {
+  
+    const api=await axios.get('https://624061412aeb48a9af735b00.mockapi.io/api/v1/users/1');
+console.log(api.data);
+}
+async function Delete() {
+  
+    const api=await axios.delete('https://624061412aeb48a9af735b00.mockapi.io/api/v1/users/1');
+console.log(api.data);
+}
+async function update() {
+  
+    const data={
+        name : "nguyen van Phuc11",
+       avatar: 'https://dbk.vn/uploads/ckfinder/images/1-content/anh-dep-1.jpg'
     }
-};
-
-function callback(element) {
-    console.log(element); //insert logic
+    const api=await axios.put('https://624061412aeb48a9af735b00.mockapi.io/api/v1/users/2',data);
+console.log(api.data);
 }
 
-var array = [2, 4, 6, 8, 10];
-array.myForEach(callback);
+async function get() {
+    const api=await axios.get('https://624061412aeb48a9af735b00.mockapi.io/api/v1/users/');
+    console.log('api ', api);
+}
 
+update()
