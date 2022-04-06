@@ -22,19 +22,21 @@ const Login = () => {
                         console.log(age);
                     }} />
             </div>
-
-
             <h1>hello :{name}</h1>
             <h2>Age: {age}</h2>
             <h2>{load}</h2>
-
             <button onClick={() => {
-                setLoad('loading....')
-                setTimeout(() => {
-                    setAge('')
-                    setName('')
-                    setLoad('')
-                }, 5000)
+                if (name && age != "") {
+
+                    setLoad('loading....')
+                    setTimeout(() => {
+                        setAge('')
+                        setName('')
+                        setLoad('')
+                    }, 1000)
+                }else{
+                    alert('vui lòng nhập đầy đủ ueserName and age')
+                }
             }}
             >Remove</button>
         </div>
