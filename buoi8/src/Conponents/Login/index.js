@@ -10,7 +10,7 @@ const Login = () => {
     const [load, setLoad] = useState("")
 
     function handClick() {
-        if (name && age != "") {
+        if (name && age) {
 
             setLoad('loading....')
             setTimeout(() => {

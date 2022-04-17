@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
-import App from './App';
+// import App from './App';
+import BtBuoi9 from './Conponents/btBuoi9'
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BtBuoi9 />
   </React.StrictMode>,
   document.getElementById('root')
 );
