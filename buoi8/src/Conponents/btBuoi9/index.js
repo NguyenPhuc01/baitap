@@ -9,6 +9,7 @@ const BtBuoi9 = () => {
             .then((res) => res.json())
             .then((user) => {
                 setUser(user)
+                setLoading(false)
                 console.log(user);
             })
             .catch((error) => {
@@ -22,8 +23,10 @@ const BtBuoi9 = () => {
         setUser(newUser)
     }
     const removeItem = (i) => {
+
         const newUser = [...user]
         newUser.splice(i, 1)
+        console.log('da click ', i);
         setUser(newUser)
     }
 
@@ -31,37 +34,47 @@ const BtBuoi9 = () => {
     return (
 
         <div>
-            <button className="btn btn-danger"
-                onClick={removeAll}
-            >deleteAll</button>
-            <Table striped bordered hover>
+            {loading ? (
+                <h1>Loadding</h1>
+            ) : (
+                <div>
+                    <button className="btn btn-danger"
+                        onClick={removeAll}
+                    >deleteAll</button>
 
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Username</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {user.map((e, i) => {
 
-                        return (
-                            <tr key={e.id}>
-                                <td>{e.id}</td>
-                                <td>{e.name}</td>
-                                <td>{e.avatar}</td>
-                                <td>{e.createdAt}</td>
-                                <td><button className='btn btn-danger' onClick={removeItem}>delete</button></td>
+                    <Table striped bordered hover>
+
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Username</th>
                             </tr>
+                        </thead>
+                        <tbody>
+                            {user.map((e, i) => {
 
-                        )
-                    })}
+                                return (
+                                    <tr key={e.id}>
+                                        <td>{e.id}</td>
+                                        <td>{e.name}</td>
+                                        <td>{e.avatar}</td>
+                                        <td>{e.createdAt}</td>
+                                        <td><button className='btn btn-danger' onClick={() => removeItem(i)}>delete</button></td>
+                                    </tr>
+
+                                )
+                            })}
 
 
-                </tbody>
-            </Table>
+                        </tbody>
+                    </Table>
+                </div>
+            )}
+
+
         </div>
 
     );
