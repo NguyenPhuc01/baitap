@@ -6,7 +6,7 @@ const Text = (Props) => {
 
     return (
         <div>
-            <h2> {Props.text}</h2>
+            <h2 className={Props.classNamee}> {Props.text}</h2>
 
         </div>
     );

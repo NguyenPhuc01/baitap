@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Input from "../../comons/Input";
 import Text from "../../comons/Text";
 import Button from "../../comons/Button";
@@ -7,6 +7,8 @@ import { useForm } from "react-hook-form";
 import "../../App.css";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import styles from "../Login/form.module.css";
+import styled from 'styled-components'
 
 const schema = yup
   .object()
@@ -32,12 +34,13 @@ const Login = () => {
     resolver: yupResolver(schema),
   });
   const values = getValues();
+  const inputElement = useRef();
 
   const onSubmit = (data) => {
     setLoad("loading....");
     setTimeout(() => {
-      setValue("fullName", '');
-      setValue("age", '');
+      setValue("fullName", "");
+      setValue("age", "");
 
       setLoad("");
     }, 1000);
@@ -45,9 +48,21 @@ const Login = () => {
     // console.log(data);
   };
 
+  const Title = styled.h1`
+    font-size: 1.5em;
+    text-align: center;
+    color: blue;
+  `;
+
   return (
     <div className="App">
       <h1>{load}</h1>
+
+      {/* <span className={styles.css_modules}>đây là css module</span> */}
+      <Text classNamee={styles.css_modules} text="day la css modules" />
+      <Title>
+        Đây là styled components
+      </Title>
       <Text text={"fullName: " + " " + values.fullName} />
       <Text text={"age: " + " " + values.age} />
       <form onSubmit={handleSubmit(onSubmit)}>
