@@ -4,11 +4,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 // import App from './App';
 import BtBuoi9 from './Conponents/btBuoi9'
+import Login from './Conponents/Login'
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BtBuoi9 />
+    < Login/>
   </React.StrictMode>,
   document.getElementById('root')
 );

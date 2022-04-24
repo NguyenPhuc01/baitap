@@ -57,7 +57,7 @@ const BtBuoi9 = () => {
                             {user.map((e, i) => {
 
                                 return (
-                                    <tr key={e.id}>
+                                    <tr key={i}>
                                         <td>{e.id}</td>
                                         <td>{e.name}</td>
                                         <td>{e.avatar}</td>

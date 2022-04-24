@@ -2,6 +2,22 @@
   text-align: center;
   margin-top: 10vh;
   color: black !important;
-  ;
+
+
+}
+
+
+.firsName input,
+p {
+  margin-left: 20px;
+}
+
+.age input,
+p {
+  margin-left: 70px
+}
+
+input {
+  margin-top: 10px;
 
 }
